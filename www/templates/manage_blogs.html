@@ -1,10 +1,11 @@
 {% extends '__base__.html' %}
 
-{% block title %}ÈÕÖ¾{% endblock %}
+{% block title %}æ—¥å¿—{% endblock %}
 
 {% block beforehead %}
 
 <script>
+
 function initVM(data) {
     var vm = new Vue({
         el: '#vm',
@@ -17,7 +18,7 @@ function initVM(data) {
                 location.assign('/manage/blogs/edit?id=' + blog.id);
             },
             delete_blog: function (blog) {
-                if (confirm('È·ÈÏÒªÉ¾³ı¡°' + blog.name + '¡±£¿É¾³ıºó²»¿É»Ö¸´£¡')) {
+                if (confirm('ç¡®è®¤è¦åˆ é™¤â€œ' + blog.name + 'â€ï¼Ÿåˆ é™¤åä¸å¯æ¢å¤ï¼')) {
                     postJSON('/api/blogs/' + blog.id + '/delete', function (err, r) {
                         if (err) {
                             return alert(err.message || err.error || err);
@@ -30,6 +31,7 @@ function initVM(data) {
     });
     $('#vm').show();
 }
+
 $(function() {
     getJSON('/api/blogs', {
         page: {{ page_index }}
@@ -41,6 +43,7 @@ $(function() {
         initVM(results);
     });
 });
+
 </script>
 
 {% endblock %}
@@ -50,9 +53,9 @@ $(function() {
     <div class="uk-width-1-1 uk-margin-bottom">
         <div class="uk-panel uk-panel-box">
             <ul class="uk-breadcrumb">
-                <li><a href="/manage/comments">ÆÀÂÛ</a></li>
-                <li class="uk-active"><span>ÈÕÖ¾</span></li>
-                <li><a href="/manage/users">ÓÃ»§</a></li>
+                <li><a href="/manage/comments">è¯„è®º</a></li>
+                <li class="uk-active"><span>æ—¥å¿—</span></li>
+                <li><a href="/manage/users">ç”¨æˆ·</a></li>
             </ul>
         </div>
     </div>
@@ -61,19 +64,19 @@ $(function() {
     </div>
 
     <div id="loading" class="uk-width-1-1 uk-text-center">
-        <span><i class="uk-icon-spinner uk-icon-medium uk-icon-spin"></i> ÕıÔÚ¼ÓÔØ...</span>
+        <span><i class="uk-icon-spinner uk-icon-medium uk-icon-spin"></i> æ­£åœ¨åŠ è½½...</span>
     </div>
 
     <div id="vm" class="uk-width-1-1">
-        <a href="/manage/blogs/create" class="uk-button uk-button-primary"><i class="uk-icon-plus"></i> ĞÂÈÕÖ¾</a>
+        <a href="/manage/blogs/create" class="uk-button uk-button-primary"><i class="uk-icon-plus"></i> æ–°æ—¥å¿—</a>
 
         <table class="uk-table uk-table-hover">
             <thead>
                 <tr>
-                    <th class="uk-width-5-10">±êÌâ / ÕªÒª</th>
-                    <th class="uk-width-2-10">×÷Õß</th>
-                    <th class="uk-width-2-10">´´½¨Ê±¼ä</th>
-                    <th class="uk-width-1-10">²Ù×÷</th>
+                    <th class="uk-width-5-10">æ ‡é¢˜ / æ‘˜è¦</th>
+                    <th class="uk-width-2-10">ä½œè€…</th>
+                    <th class="uk-width-2-10">åˆ›å»ºæ—¶é—´</th>
+                    <th class="uk-width-1-10">æ“ä½œ</th>
                 </tr>
             </thead>
             <tbody>
